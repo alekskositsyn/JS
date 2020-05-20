@@ -9,30 +9,52 @@
     <script>
         'use strict';
 
-        let countMoney = prompt('Какое количество денег вы хотите положить?');
-        
-        function massageWellDone (countMoney){
-            let countMoneyLength = countMoney.length;
-            let lastCharCountMoney = countMoney.charAt(countMoneyLength-1);
-            let lastChar = '';
-            switch (lastCharCountMoney){
+        /**
+         * Функция редактирует и выводит правильное склонение слова "Рубль" в зависимости от введенного пользователем числа.
+         * @returns {string} слово 'рубль' в правильном склонении.
+         * @param {number} num количество рублей в виде числа.
+         */
+
+        function getEnding(num){
+            let digitBerforeLastDigit = getDigitBerforeLastDigit(num);
+            if (digitBerforeLastDigit == 1){
+                return 'рублей';
+            }
+            num = String(num);
+            let lastDigit = num.charAt(num.length - 1);
+            switch (lastDigit){
                 case '1':
-                    lastChar = 'ль';
-                    break;
+                    return 'рубль';
                 case '2':
                 case '3':
                 case '4':
-                    lastChar = 'ля';    
-                    break;
+                    return 'рубля';
                 default: 
-                    lastChar = 'лей' ;
-                     
+                    return 'рублей';           
             }
-            alert('Ваша сумма в ' + countMoney + ' руб' + lastChar + ' успешно зачислена.');
 
         }
 
-        massageWellDone(countMoney);
+        /**
+         * Функция возвращает предпоследнюю цифру числа, если она есть, если нет, то null.
+         * @param {number} num
+         * @returns {(number|null)}
+         */
+        function getDigitBerforeLastDigit(num) {
+            num = String(num);
+            let digit = num.charAt(num.length - 2);
+            if (digit !== '') {
+                return Number(digit);
+            }
+            return null;
+        }
+        let countMoney = parseInt(prompt('Какое количество денег вы хотите положить?'));
+        if (isNaN(countMoney)) {
+            alert('Введено не число!');
+        } else {
+            alert(`Ваша сумма в ${countMoney} ${getEnding(countMoney)} успешно зачислена.`);
+        }
+        
     </script>
 </body>
 </html>
