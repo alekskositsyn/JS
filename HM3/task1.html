@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        for (let count = 0; count <= 10; count++) {
+            if (count == 0) {
+                alert(`${count} - это ноль`);
+                continue;
+            }
+            if (count % 2 == 0) {
+                alert(`${count} - это четное число`);
+                continue;
+            }
+            if (count % 2 == 1) {
+                alert(`${count} - это нечетное число`);
+                continue;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
