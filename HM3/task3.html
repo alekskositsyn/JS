@@ -9,25 +9,35 @@
     <script>
         'use strict';
 
-        const products = [
+        const post = {
+            author: "John", //вывести этот текст
+            postId: 23,
+            comments: [
                 {
-                    id: 3,
-                    price: 200,
+                    userId: 10,
+                    userName: "Alex",
+                    text: "lorem ipsum",
+                    rating: {
+                        likes: 10,
+                        dislikes: 2 //вывести это число
+                    }
                 },
                 {
-                    id: 4,
-                    price: 900,
+                    userId: 5, //вывести это число
+                    userName: "Jane",
+                    text: "lorem ipsum 2", //вывести этот текст
+                    rating: {
+                        likes: 3,
+                        dislikes: 1
+                    }
                 },
-                {
-                    id: 1,
-                    price: 1000,
-                },
-            ];
+            ]
+        }
 
-        products.forEach(function(products){
-           products.price -= (products.price * 15 / 100);
-        });
-        console.log(products);
+        console.log(post.author);
+        console.log(post.comments[0].rating.dislikes)
+        console.log(post.comments[1].userId)
+        console.log(post.comments[1].text)
 
     </script>
 </body>
