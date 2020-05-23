@@ -9,18 +9,18 @@
     <script>
         'use strict';
 
-        for (let count = 0; count <= 10; count++) {
+        for (let count = 0; count <= 10; ++count) {
             if (count == 0) {
-                alert(`${count} - это ноль`);
+                console.log(`${count} - это ноль`);
                 continue;
             }
             if (count % 2 == 0) {
-                alert(`${count} - это четное число`);
-                continue;
+                console.log(`${count} - это четное число`);
+                
             }
             if (count % 2 == 1) {
-                alert(`${count} - это нечетное число`);
-                continue;
+                console.log(`${count} - это нечетное число`);
+                
             }
         }
 
