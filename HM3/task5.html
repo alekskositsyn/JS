@@ -37,13 +37,27 @@
                 price: 78,
             },
         ];
-            
-        let productsWithPhoto = products.filter(getWithPhoto);
-        function getWithPhoto(item) {
-            if (item.photos !== undefined) {
+
+        let productsWithPhoto = products.filter(filterByPhoto);
+
+        function isNumber(obj) {
+            return obj !== undefined && typeof (obj[0]) === 'string' && isNaN(obj[0]);
+        }
+        function filterByPhoto(item) {
+            if (isNumber(item.photos) && item.photos !== 0) {
                 return true;
             }
         }
+
+        productsWithPhoto.sort(function (a, b) {
+            if (a.price > b.price) {
+                return 1;
+            }
+            if (a.price < b.price) {
+                return -1;
+            }
+            return 0;
+        });
         
         console.log(productsWithPhoto);
 
