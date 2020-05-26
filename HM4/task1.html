@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        let number = parseInt(prompt('Введите число от 0 до 999:'));
+
+        function Nums(units, tens, hundreds) {
+            this.units = units;
+            this.tens = tens;
+            this.hundreds = hundreds;
+        }
+        function getNums(number) {
+            let listNums = [];
+            if (Number.isInteger(number) && 0 <= number && number < 999) {
+               let units = number % 10; //это единицы
+               listNums.push(units);
+               let tens =  Math.floor((number / 10) % 10); //это десятки
+               listNums.push(tens);
+               let hundreds = Math.floor(number / 100); //это сотни
+               listNums.push(hundreds);
+            }
+            return listNums;
+        };
+        
+        const nums = new Nums(getNums(number));
+
+        // console.log(units);
+        // console.log(tens);
+        // console.log(hundreds);
+        console.log(nums);
+        
+        
+    </script>
+</body>
+
+</html>
