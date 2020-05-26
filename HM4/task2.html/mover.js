@@ -5,11 +5,11 @@ let mover = {
      */
     getDirection() {
         // Доступные значения ввода.
-        const availableDirections = [2, 4, 6, 8];
+        const availableDirections = [1, 2, 3, 4, 6, 7, 8, 9];
 
         while (true) {
             // Получаем от пользователя направление.
-            let direction = parseInt(prompt('Введите число (2, 4, 6 или 8), куда вы хотите переместиться, "Отмена" для выхода.'));
+            let direction = parseInt(prompt('Введите число (1, 2, 3, 4, 6, 7, 8 или 9), куда вы хотите переместиться, "Отмена" для выхода.'));
             if (isNaN(direction)) {
                 return null;
             }
@@ -36,22 +36,46 @@ let mover = {
             x: player.x,
             y: player.y,
         };
+        // Старая точка игрока, в случае выхода за пределы поля, остаются неизменными.
+        const lastPosition = {
+            x: player.x,
+            y: player.y,
+        };
         // Определяем направление и обновляем местоположение игрока в зависимости от направления.
         switch (direction) {
+            case 1:
+                nextPosition.x--;
+                nextPosition.y++;
+                break;                
             case 2:
                 nextPosition.y++;
                 break;
+            case 3:
+                nextPosition.x++;
+                nextPosition.y++;
+                break;  
             case 4:
                 nextPosition.x--;
                 break;
             case 6:
                 nextPosition.x++;
                 break;
+            case 7:
+                nextPosition.x--;
+                nextPosition.y--;
+                break; 
             case 8:
                 nextPosition.y--;
                 break;
+            case 9:
+                nextPosition.x++;
+                nextPosition.y--;
+                break;
         }
-
+        // Если пользователь вышел за пределы поля, то возвращаем старые точки.
+        if (nextPosition.x < 0 || nextPosition.x > 10 ||  nextPosition.y < 0 || nextPosition.y > 10) {
+            return lastPosition;
+        }
         return nextPosition;
     },
 };
