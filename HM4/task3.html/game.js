@@ -5,20 +5,33 @@ let game = {
     run() {
         // Бесконечный цикл
         while (true) {
+
+            // Получаем номер вопроса.
+            const numQuestion = questions.getNumOfQuestion(5);
+            if (numQuestion === null) {
+                console.log('Вы ответили на все вопросы. Для выхода нажмите "OK"');
+            }
             // Задаем вопрос.
-            const question = questions.getQuestion();
-            console.log(question);
+            const question = questions.getQuestion(numQuestion);
+           
             // Получаем ответ от игрока.
             const answer = answers.getAnswer();
+            //Проверяем правильность ответов.
+            const rightAnswer = questions.doCheck(answer,numQuestion);
+
+            if (rightAnswer) {
+                player.getPoints();
+            }
 
             // Если игрок сказал что хочет выйти, то игра заканчивается.
-            if (answer === null) {
+            if (answer === null || numQuestion === null) {
                 console.log("Игра окончена.");
+                console.log("Вы набрали: " + player.points + " очков");
                 return;
             }
-            
+
             renderer.clear();
-           
+
         }
     },
 
