@@ -7,6 +7,7 @@ let game = {
         while (true) {
             // Задаем вопрос.
             const question = questions.getQuestion();
+            console.log(question);
             // Получаем ответ от игрока.
             const answer = answers.getAnswer();
 
@@ -17,8 +18,6 @@ let game = {
             }
             
             renderer.clear();
-            player.move(nextPoint);
-            renderer.render();
            
         }
     },
