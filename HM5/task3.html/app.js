@@ -3,6 +3,9 @@
 let button = document.querySelector('button');
 let model = document.getElementById('myModal');
 let span = document.querySelector('span');
+const selector = document.querySelector('div');
+
+selector.classList.add('magictime', 'puffIn')
 
 const modelOpen = function() {
     model.style.display = 'block';
