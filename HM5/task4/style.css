@@ -1,0 +1,19 @@
+.product {
+    float: left;
+    width: 270px;
+    height: 270px;
+    margin-right: 10px;
+}
+.productName {
+    text-align: center;
+}
+.datails {
+    float: left;
+
+}
+.hidden {
+    display: none;
+}
+button {
+    width: 270px;
+}
