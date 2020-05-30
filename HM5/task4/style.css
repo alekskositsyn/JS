@@ -9,11 +9,10 @@
 }
 .datails {
     float: left;
+    display: none;
 
 }
-.hidden {
-    display: none;
-}
+
 button {
     width: 270px;
 }
