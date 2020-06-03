@@ -1,0 +1,22 @@
+.table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.white {
+    background: wheat;
+}
+
+.black {
+    background: rgb(red, #683010, blue);
+}
+
+tr:last-child td:first-child {
+    border: none;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <button class="basket">Корзина</button>
+        <div id="myModal" class="modal hidden">
+            <span class="close">×</span>
+            <div class="modal-header">
+                <h2>Ваша корзина</h2>
+            </div>
+            <table class="listItems">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td>Итого:</td>
+                        <td class="summ"></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    </div>
+    <div id="1" class="product">
+        <div class="productName">Lamp</div>
+        <div class="datails ">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, odio.</p>
+        </div>
+        <img src="img/product-1.jpg" alt="">
+        <p>Цена</p>
+        <div class="price">400</div>
+        <button class="datailsButton">Datails</button>
+        <button class="buy">Купить</button>
+    </div>
+    <div id="2" class="product">
+        <div class="productName">Chair</div>
+        <div class="datails ">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, odio.</p>
+        </div>
+        <img src="img/product-2.jpg" alt="">
+        <p>Цена</p>
+        <div class="price">300</div>
+        <button class="datailsButton">Datails</button>
+        <button class="buy">Купить</button>
+    </div>
+    <div id="3" class="product">
+        <div class="productName">Vase</div>
+        <div class="datails ">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, odio.</p>
+        </div>
+        <img src="img/product-3.jpg" alt="">
+        <p>Цена</p>
+        <div class="price">800</div>
+        <button class="datailsButton">Datails</button>
+        <button class="buy">Купить</button>
+    </div>
+    <script src="scripts/busket.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
