@@ -1,0 +1,89 @@
+.menu {
+    background-color: cadetblue;
+    width: 100%;
+    height: 80px;
+}
+
+.basket {
+    clear: both;
+    margin-top: 20px;
+    float: right;
+    width: 400px;
+    height: 40px;
+    background-color: beige;
+}
+
+.modal {
+    width: 400px;
+    padding: 10px;
+    background: rgb(236, 236, 236);
+    position: fixed;
+    top: 15%;
+    left: calc(50% - 210px);
+    box-shadow: 0 0 10px black;
+}
+
+.hidden {
+    display: none;
+}
+
+span {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: lightgrey;
+    font-size: 34px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+span:hover {
+    background: grey;
+    color: white;
+}
+
+.listItems {
+    border: 2px;
+    width: 200px;
+}
+
+.close {
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.product {
+    float: left;
+    width: 270px;
+    height: 340px;
+    margin-right: 10px;
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+.productName {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.datails {
+    float: left;
+    display: none;
+    width: 270px;
+    height: 280px;
+
+}
+
+button {
+    width: 270px;
+}
