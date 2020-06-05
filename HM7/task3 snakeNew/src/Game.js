@@ -57,7 +57,7 @@ class Game {
      * Этот метод запускается каждую секунду и осуществляет:
      * 1. перемещение змейки
      * 2. проверяет проиграна/выиграна ли игра
-     * 3. увеличивает размер змейки если она ест еду
+     * 3. увеличивает счётчик и размер змейки если она ест еду
      * 4. заново отрисовывает положение змейки и еды
      */
     doTick() {
@@ -65,11 +65,15 @@ class Game {
         if (this.isGameLost()) {
             return;
         }
+        if (this.boardEnd()) {
+            this.snake.goFurther();
+        }
         if (this.isGameWon()) {
             return;
         }
         if (this.board.isHeadOnFood()) {
             this.countGame.changeCount();
+            this.countGame.renderCount();
             this.snake.increaseBody();
             this.food.setNewFood();
         }
@@ -79,13 +83,24 @@ class Game {
     }
 
     /**
+     * Метод проверяет закончилось ли поле.
+     * @returns {boolean} если мы шагнули за, тогда
+     * true, иначе false.
+     */
+    boardEnd() {
+        if (this.board.isNextStepToWall(this.snake.body[0])) {
+            return true;
+        }
+    }
+
+    /**
      * Метод проверяет выиграна ли игра, останавливает игру,
      * выводит сообщение о выигрыше.
      * @returns {boolean} если длина змейки достигла длины нужной
      * для выигрыша, тогда true, иначе false.
      */
     isGameWon() {
-        if (this.snake.body.length == this.settings.winLength) {
+        if (this.snake.body.length - 1 == this.settings.winLength) {
             clearInterval(this.tickIdentifier);
             this.setMessage('Вы выиграли');
             return true;
@@ -96,11 +111,11 @@ class Game {
     /**
      * Метод проверяет проиграна ли игра, останавливает игру
      * в случае проигрыша, выводит сообщение о проигрыше.
-     * @returns {boolean} если мы шагнули в стену, тогда
+     * @returns {boolean} если мы шагнули сами на себя, тогда
      * true, иначе false.
      */
     isGameLost() {
-        if (this.board.isNextStepToWall(this.snake.body[0])) {
+        if (this.snake.stepToMyself()) {
             clearInterval(this.tickIdentifier);
             this.setMessage('Вы проиграли');
             return true;

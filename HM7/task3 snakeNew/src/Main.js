@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 
 
     countGame.init(settings);
-    settings.init({ speed: 5, winLength: 5 });
+    settings.init({ speed: 5, winLength: 20 });
     board.init(settings, snake);
     food.init(settings, snake, board);
     game.init(settings, status, board, snake, menu, food, countGame);

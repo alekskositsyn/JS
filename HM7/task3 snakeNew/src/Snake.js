@@ -24,6 +24,20 @@ class Snake {
         }
         this.direction = newDirection;
     }
+    /**
+     * Метод проверяет на ходится ли голова на теле.
+     * @returns {boolean} возвращает true, если голова оказалась на теле.
+     */
+    stepToMyself(){
+        if (this.body.length > 4) {
+            for(let i = 5; i < this.body.length; i++) {
+                if (this.body[0] == this.body[i]) {
+                    return true;
+                }
+        }
+        }
+        return false;
+    }
 
     /**
      * Метод проверяет, является ли переданное направление, противоположным
@@ -46,6 +60,32 @@ class Snake {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Метод осуществляет перенос змейки на противоположную сторону поля. Добавляет ячейку перед существующим
+     * положением головы и удаляет одну ячейку в хвосте.
+     */
+    goFurther() {
+        let currentHeadCoords = this.body[0];
+        let newHeadCoords = {
+            x: currentHeadCoords.x,
+            y: currentHeadCoords.y,
+        };
+        if (currentHeadCoords.y < 1) {
+            newHeadCoords.y = 21;
+        }
+        if (currentHeadCoords.x < 1) {
+            newHeadCoords.x = 21;
+        }
+        if (currentHeadCoords.y > 21) {
+            newHeadCoords.y = 1;
+        }
+        if (currentHeadCoords.x > 21) {
+            newHeadCoords.x = 1;
+        }
+        this.body.unshift(newHeadCoords);
+        this.body.pop();
     }
 
     /**
@@ -91,4 +131,6 @@ class Snake {
         };
         this.body.push(newBodyLastCell);
     }
+
+    
 }
