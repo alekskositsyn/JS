@@ -14,13 +14,14 @@ class Game {
      * @param {Menu} menu
      * @param {Food} food
      */
-    init(settings, status, board, snake, menu, food) {
+    init(settings, status, board, snake, menu, food, countGame) {
         this.settings = settings;
         this.status = status;
         this.board = board;
         this.snake = snake;
         this.menu = menu;
         this.food = food;
+        this.countGame = countGame;
     }
 
     /**
@@ -68,6 +69,7 @@ class Game {
             return;
         }
         if (this.board.isHeadOnFood()) {
+            this.countGame.changeCount();
             this.snake.increaseBody();
             this.food.setNewFood();
         }

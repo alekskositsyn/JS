@@ -1,6 +1,11 @@
 body {
     background: #2e353d;
 }
+#countGame {
+    text-align: center;
+    border-color: salmon;
+    color: seashell;
+}
 
 button {
     width: 150px;
