@@ -14,13 +14,13 @@ class Game {
         this.status = status;
         this.board = board;
     }
-    run() {
-        this.initEventHandlersr.bind(this);
-    }
+    // run() {
+    //     this.initEventHandlersr.bind(this);
+    // }
     /**
      * Инициализация обработчиков событий.
      */
-    initEventHandlersr() {
+    run() {
         // Ставим обработчик, при клике на таблицу вызовется функция this.cellClickHandler.
         this.board.gameTableElement.addEventListener('click', event => this.cellClickHandler(event));
     }
@@ -36,11 +36,11 @@ class Game {
         }
 
         // Заполняем ячейку.
-        this.fillCell(event);
+        this.board.fillCell(event);
         // Если кто-то выиграл, заходим в if.
         if (this.hasWon()) {
             // Ставим статус в "остановлено".
-            this.setStatusStopped();
+            this.status.setStatusStopped();
             // Сообщаем о победе пользователя.
             this.sayWonPhrase();
         }
@@ -56,7 +56,17 @@ class Game {
      * по ячейке и ячейка куда был произведен клик был по пустой ячейке.
      */
     isCorrectClick(event) {
-        return this.isStatusPlaying() && this.isClickByCell(event) && this.isCellEmpty(event);
+        return this.status.isStatusPlaying() && this.isClickByCell(event) && this.isCellEmpty(event);
+    }
+
+    /**
+     * Проверка что клик был по ячейке.
+     * @param {Event} event
+     * @param {HTMLElement} event.target
+     * @returns {boolean} Вернет true, если клик был по ячейке, иначе false.
+     */
+    isClickByCell(event) {
+        return event.target.tagName === 'TD';
     }
 
     /**

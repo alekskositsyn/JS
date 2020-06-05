@@ -37,8 +37,8 @@ class Board {
         let col = +event.target.dataset.col;
 
         // Заполняем ячейку и ставим значение в массиве, в свойстве mapValues.
-        this.mapValues[row][col] = this.phase;
-        event.target.textContent = this.phase;
+        this.game.mapValues[row][col] = this.game.phase;
+        event.target.textContent = this.game.phase;
     }
 
 }
