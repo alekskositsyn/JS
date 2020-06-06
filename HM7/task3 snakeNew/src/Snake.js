@@ -28,13 +28,14 @@ class Snake {
      * Метод проверяет на ходится ли голова на теле.
      * @returns {boolean} возвращает true, если голова оказалась на теле.
      */
-    stepToMyself(){
-        if (this.body.length > 4) {
-            for(let i = 5; i < this.body.length; i++) {
-                if (this.body[0] == this.body[i]) {
+    stepToMyself() {
+        let coordinates = this.body.map(function(coordinate) {
+            return coordinate.x.toString() + coordinate.y.toString();
+        });
+        for(let i = 3; i < this.body.length; i++) {
+                if (coordinates[0] == coordinates[i]) {
                     return true;
                 }
-        }
         }
         return false;
     }
