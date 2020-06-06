@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /**
+        * ES6
+        */
+        class Product {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            
+            make25PercentDiscount(discount) {
+               this.price = this.price - (this.price / 100 * discount);
+           }
+        }
+        
+        /**
+        * ES5
+        *        
+       function Product(name, price) {
+           this.name = name;
+           this.price = price;
+       } 
+
+       Product.prototype.make25PercentDiscount = function(discount) {
+               this.price = this.price - (this.price / 100 * discount);
+           }
+        */
+        const products = [
+            new Product('Rice', 100),
+            new Product('Water', 50),
+            new Product('Bread', 40),
+        ];
+        
+        for (let product of products){
+            product.make25PercentDiscount(25);
+        }
+
+        console.log(products)
+   
+   
+    //    const prod1 = new Product('Rice', 100);
+    //    const prod2 = new Product('Water', 50);
+    //    const prod3 = new Product('Bread', 40);
+
+    //    console.log(prod1.price);
+    //    console.log(prod2.price);
+    //    console.log(prod3.price);
+
+    //    prod1.make25PercentDiscount(25);
+    //    prod2.make25PercentDiscount(25);
+
+    //    console.log(prod1.price);
+    //    console.log(prod2.price);
+    //    console.log(prod3.price);
+
+       
+
+
+
+    </script>
+</body>
+</html>
