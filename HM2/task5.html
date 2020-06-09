@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        function getSum(a, b) {
+            a += b;
+            return a;
+        }
+
+        function getDiff(a, b) {
+            a -= b;
+            return a;
+        }
+
+        function getMult(a, b) {
+            a *= b;
+            return a;
+        }
+
+        function getDiv(a, b) {
+            a /= b;
+            return a;
+        }
+
+
+        function mathOperation(arg1, arg2, operation) {
+            switch(operation) {
+                case '+':
+                return getSum(arg1,arg2);
+                case '-':
+                return getDiff(arg1,arg2);
+                case '*':
+                return getMult(arg1,arg2);
+                case '/':
+                return getDiv(arg1,arg2);
+            }
+        }
+
+        console.log(mathOperation(4, 6, '+')); // Выведет 10
+        console.log(mathOperation(10, 6, '-')); // Выведет 4
+        console.log(mathOperation(4, 6, '*')); // Выведет 24
+        console.log(mathOperation(10, 2, '/')); // Выведет 5
+
+
+
+    </script>
+</body>
+</html>

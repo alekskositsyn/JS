@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /**
+         * Функция редактирует и выводит правильное склонение слова "Рубль" в зависимости от введенного пользователем числа.
+         * @returns {string} слово 'рубль' в правильном склонении.
+         * @param {number} num количество рублей в виде числа.
+         */
+
+        function getEnding(num){
+            let digitBerforeLastDigit = getDigitBerforeLastDigit(num);
+            if (digitBerforeLastDigit == 1){
+                return 'рублей';
+            }
+            num = String(num);
+            let lastDigit = num.charAt(num.length - 1);
+            switch (lastDigit){
+                case '1':
+                    return 'рубль';
+                case '2':
+                case '3':
+                case '4':
+                    return 'рубля';
+                default: 
+                    return 'рублей';           
+            }
+
+        }
+
+        /**
+         * Функция возвращает предпоследнюю цифру числа, если она есть, если нет, то null.
+         * @param {number} num
+         * @returns {(number|null)}
+         */
+        function getDigitBerforeLastDigit(num) {
+            num = String(num);
+            let digit = num.charAt(num.length - 2);
+            if (digit !== '') {
+                return Number(digit);
+            }
+            return null;
+        }
+        let countMoney = parseInt(prompt('Какое количество денег вы хотите положить?'));
+        if (isNaN(countMoney)) {
+            alert('Введено не число!');
+        } else {
+            alert(`Ваша сумма в ${countMoney} ${getEnding(countMoney)} успешно зачислена.`);
+        }
+        
+    </script>
+</body>
+</html>

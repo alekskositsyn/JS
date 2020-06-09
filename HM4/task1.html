@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        
+        let number = parseInt(prompt('Введите целое число от 0 до 999:'));
+
+        function getNums(number) {
+            if (Number.isInteger(number) && 0 <= number && number < 999) {
+               return {
+                units: number % 10, //это единицы
+                tens: Math.floor((number / 10) % 10), //это десятки
+                hundreds: Math.floor(number / 100), //это сотни
+               }; 
+            }
+            console.log('Некорректное число');
+            return {};
+        };
+
+        console.log(getNums(number));
+    </script>
+</body>
+
+</html>
